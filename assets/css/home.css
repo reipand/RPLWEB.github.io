@@ -20,6 +20,35 @@
     to { left: 100%; }
 }
 
+.container {
+    display: grid;
+    grid-template-rows: 80px auto 1fr auto 50px;
+    grid-template-columns: 1fr 4fr 1fr;
+    height: 100vh;
+    grid-template-areas: 
+    "header header header"
+    "left-aside banner  right-aside"
+    "left-aside low-content right-aside"
+    "footer footer footer";
+    grid-gap: 10px; padding: 10px;
+    font-weight: 600;   font-size: 20px;
+}
+
+@media  (max-width: 68px) {
+    .container{
+        grid-template-rows: 50px    50px    50px 1fr
+        50px    50px    50px;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "header"
+        "banner"
+        "left-aside"
+        "main"
+        "right-aside"
+        "low-content"
+        "footer";
+    }
+}
 
 nav .navbar-body {
     background-color: black !important;
@@ -282,14 +311,14 @@ header {
     padding: 20px;
     background-color: #f4f4f4;
 }
-
-.members-list {
+.member-list-vip {
     display: flex;
     flex-wrap: wrap;  /* Allows members to wrap to the next row */
-    justify-content: space-around;  /* Distributes members evenly */
-    margin: 20px 0;
-    padding: 0 10px;
+    padding-top: 30px;
+    background-color: #333; /* Warna latar belakang abu-abu gelap untuk kontras */
 }
+
+
 
 .member {
     text-align: center;
@@ -312,7 +341,46 @@ footer {
     color: white;
 }
 
+/* New member-vip styles */
+.member-vip {
+    display: block; /* Use block to make it standalone */
+    text-align: center;
+    max-width: 250px; /* Limit width */
+    margin: 20px auto 20px auto; /* Center and add 20px gap below */
+    border: 3px solid yellow; /* Border */
+    padding: 10px; /* Padding */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    transition: transform 0.3s ease; /* Animation on hover */
+    text-align: center;
+    max-width: 250px;
+    flex: 1 1 22%;  /* Flex basis of 22% ensures four members fit per row with space in between */
+    margin: 0 auto; /* Center the VIP member */
+    margin-bottom: 20px; /* Adds space between VIP member and rest */
+    padding-top: 10px;
+}
 
+.member-vip:hover {
+    transform: scale(1.05); /* Slight enlargement on hover */
+    border-color: #ffcc00; /* Change border color on hover */
+}
+
+.member-vip img {
+    width: 150px; /* Set width */
+    height: 150px; /* Set height */
+    border-radius: 50%; /* Circular image */
+    border: 5px solid black; /* Black border */
+    padding: 5px; /* Padding around the image */
+    background-color: yellow; /* Yellow background behind image */
+    transition: transform 0.3s ease; /* Animation on hover */
+    
+}
+
+
+.member-vip img:hover {
+    transform: scale(1.1); /* Perbesar sedikit gambar saat hover */
+}
 
 /* Gaya dasar halaman */
 body {
